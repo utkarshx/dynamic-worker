@@ -59,7 +59,7 @@ app.post('/deploy', async (c) => {
     // Run rollup to bundle the project
     execSync('npx rollup -c', { cwd: workspaceDir, stdio: 'inherit' });
 
-    await deployWorker(path.join(workspaceDir, 'index.js'));
+    await deployWorker(path.join(workspaceDir, 'dist','worker.js'));
 
     return c.text(`Deployment created with UID: ${uid}`);
 });
