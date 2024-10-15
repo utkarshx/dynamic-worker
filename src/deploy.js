@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import fs from 'fs/promises';
 
-async function deployWorker(filePath) {
+export default async function deployWorker(filePath) {
   const accessToken = process.env.DEPLOY_ACCESS_TOKEN;
   const orgId = process.env.DEPLOY_ORG_ID;
   const API = "https://api.deno.com/v1";

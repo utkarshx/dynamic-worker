@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "dist/worker.js",
   "scripts": {
-    "dev": "npm run generate && npm run build && wrangler dev dist/worker.js",
-    "generate": "node src/index.js",
+    "dev": "npm run build && wrangler dev dist/worker.js",
     "start-server": "npm run compile-template && node src/main.js",
     "build": "rollup -c",
     "compile-template": "npx hono-nunjucks-precompile src/templates/raw src/templates/precompiled.mjs"
