@@ -1,5 +1,6 @@
 // rollup.config.js
 import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default {
     input: 'src/index.js',
@@ -7,5 +8,8 @@ export default {
         file: 'dist/worker.js',
         format: 'es',
     },
-    plugins: [resolve()],
+    plugins: [
+        resolve(),
+        commonjs(),
+    ],
 };
