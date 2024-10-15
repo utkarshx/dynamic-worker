@@ -1,6 +1,6 @@
 
-import hello from './nodes/hello.js';
-import test from './nodes/test.js';
+import hello from './nodes/hello/index.js';
+import test from './nodes/test/index.js';
 
 const nodes = [hello, test];
 

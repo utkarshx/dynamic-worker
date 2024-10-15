@@ -5,14 +5,16 @@ const path = require('path');
 const nodesDir = path.resolve(__dirname, '../src/nodes');
 const indexPath = path.resolve(__dirname, '../src/index.js');
 
-const files = fs.readdirSync(nodesDir).filter(file => file.endsWith('.js'));
+const folders = fs.readdirSync(nodesDir).filter(folder => {
+    const folderPath = path.join(nodesDir, folder);
+    return fs.statSync(folderPath).isDirectory();
+});
 
-const imports = files.map(file => {
-    const moduleName = path.basename(file, '.js');
-    return `import ${moduleName} from './nodes/${file}';`;
+const imports = folders.map(folder => {
+    return `import ${folder} from './nodes/${folder}/index.js';`;
 }).join('\n');
 
-const nodesArray = files.map(file => path.basename(file, '.js')).join(', ');
+const nodesArray = folders.join(', ');
 
 const indexContent = `
 ${imports}
